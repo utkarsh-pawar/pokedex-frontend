@@ -18,7 +18,7 @@ class PokemonStore {
   };
 
   prefetchDetails = () => {
-    return (this.favorites = localStorage.getItem('favs').split(','));
+    return (this.favorites = localStorage.getItem('favs')?.split(','));
   };
 
   addFav = (name) => {
