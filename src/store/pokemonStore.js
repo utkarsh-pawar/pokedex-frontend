@@ -19,7 +19,11 @@ class PokemonStore {
   };
 
   prefetchDetails = () => {
-    return (this.favorites = localStorage.getItem('favs')?.split(','));
+    if (localStorage.getItem('favs') === undefined) {
+      return;
+    } else {
+      return (this.favorites = localStorage.getItem('favs').split(','));
+    }
   };
 
   clearFavs = () => {
