@@ -62,6 +62,7 @@ export const getFavorites = async () => {
         authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
+    console.log(response);
     return response.data;
   } catch (e) {
     if (e.response) {
