@@ -49,7 +49,7 @@ const Index = ({ store, pokemonStore }) => {
   }, []);
 
   return (
-    <Layout store={store}>
+    <Layout pokemonStore={pokemonStore} store={store}>
       <Box mb={10}>
         <Box my={5}>
           <Center>

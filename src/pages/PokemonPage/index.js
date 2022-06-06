@@ -6,15 +6,16 @@ import Layout from '../../components/organisms/Layout';
 // import { Progress } from '@chakra-ui/progress';
 import { searchPokemons } from '../../api/pokemon';
 import Tag from '../../components/atoms/Tag';
+import PropTypes from 'prop-types';
 
-const Index = () => {
+const Index = ({ store, pokemonStore }) => {
   const params = useParams();
   console.log(params);
   const { data, status } = useQuery('getPokemonData', () => searchPokemons(params.name));
   console.log(data);
   // const navigate = useNavigate();
   return (
-    <Layout>
+    <Layout store={store} pokemonStore={pokemonStore}>
       {status === 'success' &&
         [data].map((pokemon) => (
           <Box
@@ -101,6 +102,11 @@ const Index = () => {
         ))}
     </Layout>
   );
+};
+
+Index.propTypes = {
+  store: PropTypes.any,
+  pokemonStore: PropTypes.any
 };
 
 export default Index;

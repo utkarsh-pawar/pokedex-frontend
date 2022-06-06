@@ -9,7 +9,7 @@ const Index = ({ pokemonStore, store }) => {
   const [pokemons] = useState(Array.from(pokemonStore.favorites));
   console.log(pokemons);
   return (
-    <Layout store={store}>
+    <Layout store={store} pokemonStore={pokemonStore}>
       <Heading>Favorite Pokemons:</Heading>
       <Center minH={'90vh'} w="100%">
         <Wrap mb={10} justify={'center'} spacing={5} align="center" w={'100%'}>

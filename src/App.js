@@ -39,7 +39,10 @@ function App() {
           <Route
             path="/"
             element={<Landing pokemonStore={pokemonStore} store={userStore} />}></Route>
-          <Route path="/pokemon/:name" element={<PokemonPage />} />
+          <Route
+            path="/pokemon/:name"
+            element={<PokemonPage store={userStore} pokemonStore={pokemonStore} />}
+          />
           <Route
             path="/profile"
             element={<Profile store={userStore} pokemonStore={pokemonStore} />}

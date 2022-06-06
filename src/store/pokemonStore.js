@@ -7,7 +7,8 @@ class PokemonStore {
     makeObservable(this, {
       favorites: observable,
       addFav: action,
-      removeFav: action
+      removeFav: action,
+      clearFavs: action
     });
     autorun(this.logFavs);
     runInAction(this.prefetchDetails);
@@ -19,6 +20,10 @@ class PokemonStore {
 
   prefetchDetails = () => {
     return (this.favorites = localStorage.getItem('favs')?.split(','));
+  };
+
+  clearFavs = () => {
+    return (this.favorites = []);
   };
 
   addFav = (name) => {

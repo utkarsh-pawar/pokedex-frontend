@@ -7,7 +7,7 @@ import Icon from '../../../assets/pokemon-icon-png-0.jpg';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { config } from '../../../config/config';
 
-const Index = ({ store }) => {
+const Index = ({ store, pokemonStore }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,6 +15,9 @@ const Index = ({ store }) => {
   console.log(store);
   const logoutHandler = () => {
     store.logout();
+    localStorage.removeItem('token');
+    localStorage.removeItem('favs');
+    pokemonStore.clearFavs();
     console.log('success');
   };
   return (
@@ -66,7 +69,8 @@ const Index = ({ store }) => {
 };
 
 Index.propTypes = {
-  store: PropTypes.any
+  store: PropTypes.any,
+  pokemonStore: PropTypes.any
 };
 
 export default Index;
