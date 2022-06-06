@@ -54,3 +54,22 @@ export const addToFav = async (name) => {
     }
   }
 };
+
+export const getFavorites = async () => {
+  try {
+    const response = await axios.get(`${config.base_url}/pokemon/favs`, '', {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return response.data;
+  } catch (e) {
+    if (e.response) {
+      console.log(e.response.data);
+    } else if (e.request) {
+      console.log(e.request.data);
+    } else {
+      console.log(e.message);
+    }
+  }
+};
