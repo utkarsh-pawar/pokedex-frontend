@@ -26,7 +26,7 @@ function App() {
     }
     gapi.load('client:auth2', start);
     setLoading(false);
-  }, []);
+  });
   return (
     <>
       {loading && (
