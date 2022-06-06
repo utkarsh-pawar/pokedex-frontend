@@ -15,7 +15,7 @@ const index = ({ name, pokemonStore }) => {
   };
 
   const addToFavHandler = () => {
-    if (pokemonStore?.favorites.includes(name)) {
+    if (pokemonStore.favorites?.includes(name)) {
       pokemonStore.removeFav(name);
       addToFav(data?.name);
     } else {
@@ -65,7 +65,7 @@ const index = ({ name, pokemonStore }) => {
             <StarIcon
               boxSize={5}
               cursor={'pointer'}
-              color={pokemonStore?.favorites.includes(name) ? 'yellow' : 'black'}
+              color={pokemonStore?.favorites?.includes(name) ? 'yellow' : 'black'}
               mr={5}
               onClick={addToFavHandler}></StarIcon>
           </Box>
